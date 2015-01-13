@@ -12,12 +12,19 @@ import org.meeuw.a.A;
  * @author Michiel Meeuwissen
  * @since ...
  */
+@XmlRootElement(name = "list")
+@XmlType(
+    name = "listType")
 @XmlAccessorType(XmlAccessType.PROPERTY)
 @XmlSeeAlso({A.class, C.class})
 public class BList<T> implements Iterable<T> {
 
     @XmlTransient
     protected List<T> list;
+
+    public BList() {
+
+    }
 
 
     public BList(final java.util.List<T> list) {

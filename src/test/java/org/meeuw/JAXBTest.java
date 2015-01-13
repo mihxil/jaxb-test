@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 import javax.xml.bind.JAXB;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.meeuw.a.A;
 import org.meeuw.b.B;
@@ -18,7 +17,6 @@ import org.meeuw.b.C;
 public class JAXBTest {
 
     @Test
-    @Ignore
     public void simple () {
         A a = new A();
         JAXB.marshal(a, System.out);
@@ -29,6 +27,8 @@ public class JAXBTest {
         B<A> b = new B<>();
         b.list = new BList<>(Arrays.asList(new A()));
         JAXB.marshal(b, System.out);
+        JAXB.marshal(b.list, System.out);
+
     }
 
     @Test
@@ -36,5 +36,6 @@ public class JAXBTest {
         B<C> b = new B<>();
         b.list = new BList<C>(Arrays.asList(new C()));
         JAXB.marshal(b, System.out);
+        JAXB.marshal(b.list, System.out);
     }
 }
